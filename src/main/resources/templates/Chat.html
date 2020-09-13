@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Chat</title>
+</head>
+    <body>
+        <form th:object="${chatForm}" th:action ="@{/chat} "action="#" method="POST">
+            <label for="messageText">Message Text:</label>
+            <input id="messageText" type="text" name="messageText" th:field="*{messageText}">
+            <label for="messageType">Message Type: </label>
+            <select id="messageType" th:field="*{messageType}" >
+                <option
+                    th:each = "messageType :${allMessageTypes}"
+                    th:value = "${messageType}"
+                    th:text = "${messageType}"
+                >Say</option>
+            </select>
+            <input type="submit">
+        </form>
+        <div th:each="sentMessage : ${sentMessages}">
+            <span th:text="${sentMessage.username}">Username</span>:
+            <span th:text="${sentMessage.messageText}">Hello, world!</span>
+        </div>
+    </body>
+</html>
