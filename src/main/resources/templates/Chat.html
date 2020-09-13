@@ -22,5 +22,9 @@
             <span th:text="${sentMessage.username}">Username</span>:
             <span th:text="${sentMessage.messageText}">Hello, world!</span>
         </div>
+        <form th:action="@{/logout}" method="post">
+            <input type="submit" value="Sign Out"/>
+        </form>
+
     </body>
 </html>
